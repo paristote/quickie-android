@@ -1,4 +1,4 @@
-package com.philipoy.app.quickcontact.activity;
+package com.philipoy.android.quickie.activity;
 
 import java.util.ArrayList;
 
@@ -17,9 +17,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.philipoy.app.quickcontact.R;
-import com.philipoy.app.quickcontact.model.QuickContact;
-import com.philipoy.app.quickcontact.storage.QuickContactsDBHelper;
+import com.philipoy.android.quickie.R;
+import com.philipoy.android.quickie.model.QuickContact;
+import com.philipoy.android.quickie.storage.QuickContactsDBHelper;
 
 public class DeleteQuickContactActivity extends ActionBarActivity {
 

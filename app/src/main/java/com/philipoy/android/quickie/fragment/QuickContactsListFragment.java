@@ -1,7 +1,7 @@
-package com.philipoy.app.quickcontact.fragment;
+package com.philipoy.android.quickie.fragment;
 
-import com.philipoy.app.quickcontact.model.QuickContact;
-import com.philipoy.app.quickcontact.storage.QuickContactsDBHelper;
+import com.philipoy.android.quickie.model.QuickContact;
+import com.philipoy.android.quickie.storage.QuickContactsDBHelper;
 
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;

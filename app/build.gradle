@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.philipoy.app.quickcontact"
+        applicationId "com.philipoy.android.quickcontact"
         minSdkVersion 7
         targetSdkVersion 23
         versionCode 1

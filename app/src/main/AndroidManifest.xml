@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.philipoy.app.quickcontact"
+    package="com.philipoy.android.quickie"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -19,11 +19,11 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat" >
         <activity
-            android:name="com.philipoy.app.quickcontact.activity.AddQuickContactActivity"
+            android:name="com.philipoy.android.quickie.activity.AddQuickContactActivity"
             android:label="@string/title_activity_add_quick_contact" >
         </activity>
         <activity
-            android:name="com.philipoy.app.quickcontact.activity.MainActivity"
+            android:name="com.philipoy.android.quickie.activity.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.philipoy.app.quickcontact.activity.DeleteQuickContactActivity"
+            android:name="com.philipoy.android.quickie.activity.DeleteQuickContactActivity"
             android:label="@string/title_activity_delete_quick_contact" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -40,7 +40,7 @@
         </activity>
 
         <service
-            android:name="com.philipoy.app.quickcontact.task.CheckContactsToDeleteService"
+            android:name="com.philipoy.android.quickie.task.CheckContactsToDeleteService"
             android:exported="false" />
     </application>
 

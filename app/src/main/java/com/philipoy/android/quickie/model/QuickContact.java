@@ -1,4 +1,4 @@
-package com.philipoy.app.quickcontact.model;
+package com.philipoy.android.quickie.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

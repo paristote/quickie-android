@@ -1,4 +1,4 @@
-package com.philipoy.app.quickcontact.fragment;
+package com.philipoy.android.quickie.fragment;
 
 import android.database.Cursor;
 import android.net.Uri;

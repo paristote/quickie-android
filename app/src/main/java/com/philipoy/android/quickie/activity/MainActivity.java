@@ -1,4 +1,4 @@
-package com.philipoy.app.quickcontact.activity;
+package com.philipoy.android.quickie.activity;
 
 import java.util.Locale;
 
@@ -17,10 +17,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.philipoy.app.quickcontact.R;
-import com.philipoy.app.quickcontact.fragment.AllContactsListFragment;
-import com.philipoy.app.quickcontact.fragment.QuickContactsListFragment;
-import com.philipoy.app.quickcontact.task.CheckContactsToDeleteService;
+import com.philipoy.android.quickie.R;
+import com.philipoy.android.quickie.fragment.AllContactsListFragment;
+import com.philipoy.android.quickie.fragment.QuickContactsListFragment;
+import com.philipoy.android.quickie.task.CheckContactsToDeleteService;
 
 public class MainActivity extends ActionBarActivity implements
 		ActionBar.TabListener {

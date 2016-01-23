@@ -1,4 +1,4 @@
-package com.philipoy.app.quickcontact.activity;
+package com.philipoy.android.quickie.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -10,9 +10,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.philipoy.app.quickcontact.R;
-import com.philipoy.app.quickcontact.model.QuickContact;
-import com.philipoy.app.quickcontact.storage.QuickContactsDBHelper;
+import com.philipoy.android.quickie.R;
+import com.philipoy.android.quickie.model.QuickContact;
+import com.philipoy.android.quickie.storage.QuickContactsDBHelper;
 
 public class AddQuickContactActivity extends ActionBarActivity {
 	

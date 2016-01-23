@@ -1,4 +1,4 @@
-package com.philipoy.app.quickcontact.storage;
+package com.philipoy.android.quickie.storage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +17,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.ContactsContract;
 import android.text.format.DateFormat;
 
-import com.philipoy.app.quickcontact.model.QuickContact;
+import com.philipoy.android.quickie.model.QuickContact;
 
 public class QuickContactsDBHelper extends SQLiteOpenHelper {
 	

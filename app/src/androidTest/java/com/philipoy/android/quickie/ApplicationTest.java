@@ -1,4 +1,4 @@
-package com.philipoy.app.quickcontact;
+package com.philipoy.android.quickie;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

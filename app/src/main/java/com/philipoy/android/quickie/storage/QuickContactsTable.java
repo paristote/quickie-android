@@ -1,4 +1,4 @@
-package com.philipoy.app.quickcontact.storage;
+package com.philipoy.android.quickie.storage;
 
 import android.provider.BaseColumns;
 

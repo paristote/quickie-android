@@ -1,4 +1,4 @@
-package com.philipoy.app.quickcontact.task;
+package com.philipoy.android.quickie.task;
 
 import java.util.ArrayList;
 
@@ -13,11 +13,11 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 
-import com.philipoy.app.quickcontact.BuildConfig;
-import com.philipoy.app.quickcontact.R;
-import com.philipoy.app.quickcontact.activity.DeleteQuickContactActivity;
-import com.philipoy.app.quickcontact.model.QuickContact;
-import com.philipoy.app.quickcontact.storage.QuickContactsDBHelper;
+import com.philipoy.android.quickie.BuildConfig;
+import com.philipoy.android.quickie.R;
+import com.philipoy.android.quickie.activity.DeleteQuickContactActivity;
+import com.philipoy.android.quickie.model.QuickContact;
+import com.philipoy.android.quickie.storage.QuickContactsDBHelper;
 
 public class CheckContactsToDeleteService extends Service {
 
