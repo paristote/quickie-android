@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:quickcontacts="http://schemas.android.com/apk/res-auto"
+    tools:context="com.philipoy.app.quickfriend.DeleteQuickContactActivity" >
+    
+    <item 
+        android:id="@+id/delete_all_contacts_btn"
+        android:title="@string/action_delete_all"
+        quickcontacts:showAsAction="always"/>
+
+</menu>

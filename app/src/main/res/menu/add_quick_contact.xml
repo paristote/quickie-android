@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:quickie="http://schemas.android.com/apk/res-auto" >
+    <item
+        android:id="@+id/saveqf"
+        android:icon="@drawable/ic_action_accept"
+        quickie:showAsAction="ifRoom"
+        android:title="@string/action_save"/>
+</menu>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="eol_values">
+        <item>@string/label_eol_2w</item>
+        <item>@string/label_eol_1m</item>
+        <item>@string/label_eol_3m</item>
+        <item>@string/label_eol_6m</item>
+    </string-array>
+</resources>
