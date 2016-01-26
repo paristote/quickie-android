@@ -1,8 +1,11 @@
 package com.philipoy.android.quickie.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -10,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.philipoy.android.quickie.BuildConfig;
 import com.philipoy.android.quickie.R;
 import com.philipoy.android.quickie.model.QuickContact;
 import com.philipoy.android.quickie.storage.QuickContactsDBHelper;
@@ -29,7 +33,15 @@ public class AddQuickContactActivity extends ActionBarActivity {
 		mContactNameText = (EditText)findViewById(R.id.new_qc_name);
 		mContactPhoneText = (EditText)findViewById(R.id.new_qc_phone);
 		mContactEOLSelector = (Spinner)findViewById(R.id.eol);
-	}
+
+		Intent i = getIntent();
+        if (i.hasExtra(ContactsContract.Intents.Insert.PHONE)) {
+            String phone = i.getStringExtra(ContactsContract.Intents.Insert.PHONE);
+            mContactPhoneText.setText(phone);
+            if (BuildConfig.DEBUG)
+                Log.d("ADD_CONTACT", "Has phone: " + phone);
+        }
+    }
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {

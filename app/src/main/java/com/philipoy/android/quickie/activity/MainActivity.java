@@ -1,5 +1,6 @@
 package com.philipoy.android.quickie.activity;
 
+import java.util.Calendar;
 import java.util.Locale;
 
 import android.app.AlarmManager;
@@ -17,6 +18,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.philipoy.android.quickie.BuildConfig;
 import com.philipoy.android.quickie.R;
 import com.philipoy.android.quickie.fragment.AllContactsListFragment;
 import com.philipoy.android.quickie.fragment.QuickContactsListFragment;
@@ -89,12 +91,15 @@ public class MainActivity extends ActionBarActivity implements
 	private void scheduleCheckContactsToDeleteTask() {
 		Intent checkContacts = new Intent(this, CheckContactsToDeleteService.class);
 		PendingIntent alarmIntent = PendingIntent.getService(this, CheckContactsToDeleteService.CODE, checkContacts, 0);
-		
+
 		AlarmManager alarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-		alarm.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, AlarmManager.INTERVAL_DAY, AlarmManager.INTERVAL_DAY, alarmIntent);
-//		Comment the line above and uncomment the lines below to run the service every 10 seconds
-//		Calendar cal = Calendar.getInstance();
-//		alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 10*1000, alarmIntent);
+		if (BuildConfig.DEBUG) {
+			Calendar cal = Calendar.getInstance();
+            // In debug mode we run the service every minute
+			alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 60*1000, alarmIntent);
+		} else {
+			alarm.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, AlarmManager.INTERVAL_DAY, AlarmManager.INTERVAL_DAY, alarmIntent);
+		}
 	}
 
 	@Override
