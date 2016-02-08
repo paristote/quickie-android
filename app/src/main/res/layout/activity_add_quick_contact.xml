@@ -38,7 +38,7 @@
         android:layout_alignLeft="@+id/new_qc_phone"
         android:layout_below="@+id/new_qc_phone"
         android:layout_marginTop="20dp"
-        android:text="@string/hint_contact_eol" />
+        android:text="@string/hint_contact_delete_in" />
 
     <Spinner
         android:id="@+id/eol"

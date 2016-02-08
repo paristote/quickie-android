@@ -2,40 +2,46 @@
 <resources>
 
     <string name="app_name">Quick Contacts</string>
-    
+
     <string name="hint_contact_name">Name</string>
     <string name="hint_contact_phone">Phone</string>
-    <string name="hint_contact_eol">Delete in</string>
-    
+    <string name="hint_contact_delete_in">Delete in</string>
+    <string name="hint_contact_delete_date">Delete date</string>
+
     <string name="title_activity_add_quick_contact">Add a new quick contact</string>
     <string name="title_activity_main">Contacts</string>
     <string name="title_quick_contacts_section">Quick Contacts</string>
     <string name="title_all_contacts_section">All Contacts</string>
     <string name="title_activity_delete_quick_contact">Delete Contacts</string>
-    
+    <string name="title_activity_view_contact">View Contact</string>
+    <string name="title_warning_delete_contact">Delete this contact ?</string>
+
     <string name="action_create">Add</string>
     <string name="action_save">Done</string>
     <string name="action_delete">Delete</string>
     <string name="action_delete_all">Delete all</string>
     <string name="action_postpone">Ask me tomorrow</string>
     <string name="action_cancel">Cancel</string>
-	<string name="action_settings">Settings</string>
-	
-	<string name="success_contact_created">Quick contact created successfully</string>
-	<string name="success_contact_deleted">Contact deleted successfully</string>
-	<string name="success_all_contacts_deleted">All contacts were deleted successfully</string>
-	<string name="success_quick_contact_only_deleted">Quick contact deleted and real contact kept</string>
-	<string name="success_ask_tomorrow">We will remind you tomorrow</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="success_contact_created">Quick contact created successfully</string>
+    <string name="success_contact_deleted">Contact deleted successfully</string>
+    <string name="success_all_contacts_deleted">All contacts were deleted successfully</string>
+    <string name="success_quick_contact_only_deleted">Quick contact deleted and real contact kept</string>
+    <string name="success_ask_tomorrow">We will remind you tomorrow</string>
 
     <string name="error_incorrect_contact_values">Could not create contact with empty values</string>
-	<string name="error_contact_not_created">Could not create contact</string>
-	<string name="error_contact_not_deleted">Could not delete contact</string>
-	<string name="error_quick_contact_only_not_deleted">Could not cancel the end-of-life of the contact</string>
-	<string name="error_all_contacts_not_deleted">Could not delete all contacts</string>
-	<string name="error_contact_not_postponed">Could not postpone the end-of-life of the contact</string>
-	
-	<string name="label_eol_2w">2 weeks</string>
-	<string name="label_eol_1m">1 month</string>
-	<string name="label_eol_3m">3 months</string>
-	<string name="label_eol_6m">6 months</string>
+    <string name="error_contact_not_created">Could not create contact</string>
+    <string name="error_contact_not_deleted">Could not delete contact</string>
+    <string name="error_quick_contact_only_not_deleted">Could not cancel the end-of-life of the contact</string>
+    <string name="error_all_contacts_not_deleted">Could not delete all contacts</string>
+    <string name="error_contact_not_postponed">Could not postpone the end-of-life of the contact</string>
+
+    <string name="label_eol_2w">2 weeks</string>
+    <string name="label_eol_1m">1 month</string>
+    <string name="label_eol_3m">3 months</string>
+    <string name="label_eol_6m">6 months</string>
+
+
+
 </resources>
