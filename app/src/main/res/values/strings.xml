@@ -23,6 +23,7 @@
     <string name="action_postpone">Ask me tomorrow</string>
     <string name="action_cancel">Cancel</string>
     <string name="action_settings">Settings</string>
+    <string name="action_call">Call</string>
 
     <string name="success_contact_created">Quick contact created successfully</string>
     <string name="success_contact_deleted">Contact deleted successfully</string>
