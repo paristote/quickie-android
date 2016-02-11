@@ -7,6 +7,7 @@
     <string name="hint_contact_phone">Phone</string>
     <string name="hint_contact_delete_in">Delete in</string>
     <string name="hint_contact_delete_date">Delete date</string>
+    <string name="hint_no_quick_contact">You have no quick contact. Tap the button in the corner to add your first one.</string>
 
     <string name="title_activity_add_quick_contact">Add a new quick contact</string>
     <string name="title_activity_main">Contacts</string>
@@ -42,7 +43,5 @@
     <string name="label_eol_1m">1 month</string>
     <string name="label_eol_3m">3 months</string>
     <string name="label_eol_6m">6 months</string>
-
-
 
 </resources>

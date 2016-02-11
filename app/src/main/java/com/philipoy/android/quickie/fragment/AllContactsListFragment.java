@@ -14,6 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+/**
+ * @deprecated we don't display this list anymore
+ */
 public class AllContactsListFragment extends ListFragment implements LoaderCallbacks<Cursor> {
 
 	@Override
