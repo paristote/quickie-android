@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Quick Contacts</string>
+    <string name="app_name">Quickie</string>
 
     <string name="hint_contact_name">Name</string>
     <string name="hint_contact_phone">Phone</string>
