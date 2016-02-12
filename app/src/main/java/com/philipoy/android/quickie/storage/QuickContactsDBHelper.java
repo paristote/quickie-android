@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import android.Manifest;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.ContentProviderOperation;
@@ -11,17 +12,26 @@ import android.content.ContentProviderResult;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.OperationApplicationException;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.RemoteException;
 import android.provider.ContactsContract;
+import android.support.v4.content.ContextCompat;
 import android.text.format.DateFormat;
+import android.util.Log;
 
+import com.philipoy.android.quickie.BuildConfig;
+import com.philipoy.android.quickie.permission.DeniedPermissionException;
 import com.philipoy.android.quickie.model.QuickContact;
 
 public class QuickContactsDBHelper extends SQLiteOpenHelper {
 	
 	private Context mContext;
+
+    private final String LOG_TAG = "QuickContactsHelper";
 	
 	private static final String DATABASE_NAME = "QuickContacts.db";
 	private static final int DATABASE_VERSION = 1;
@@ -150,16 +160,20 @@ public class QuickContactsDBHelper extends SQLiteOpenHelper {
 	 * Gets the name and type of the 1st account configured on the device
 	 * @return an array that contains the [name, type] of the account
 	 */
-	private String[] getAccountInfo() {
+	private String[] getAccountInfo() throws DeniedPermissionException {
 		// TODO better handling of multiple accounts
 		String[] info = new String[2];
+        int permCheck = ContextCompat.checkSelfPermission(mContext, Manifest.permission.GET_ACCOUNTS);
+        if (permCheck == PackageManager.PERMISSION_GRANTED) {
+            Account[] accounts = AccountManager.get(mContext).getAccounts();
+            if (accounts.length > 0) {
+                info[0] = accounts[0].name;
+                info[1] = accounts[0].type;
+            }
+        } else {
+            throw new DeniedPermissionException(Manifest.permission.GET_ACCOUNTS);
+        }
 
-		Account[] accounts = AccountManager.get(mContext).getAccounts();
-		if (accounts.length > 0) {
-			info[0] = accounts[0].name;
-			info[1] = accounts[0].type;
-		}
-		
 		return info;
 	}
 	
@@ -168,7 +182,7 @@ public class QuickContactsDBHelper extends SQLiteOpenHelper {
 	 * @param contact a QuickContact with at least a contactName and contactPhone properties
 	 * @return the _ID of the created Raw Contact
 	 */
-	private String addRealContact(QuickContact contact) {
+	private String addRealContact(QuickContact contact) throws DeniedPermissionException {
 		String[] account = getAccountInfo();
 		String realId = "";
 
@@ -194,14 +208,20 @@ public class QuickContactsDBHelper extends SQLiteOpenHelper {
                 .withValue(ContactsContract.CommonDataKinds.Phone.TYPE, ContactsContract.CommonDataKinds.Phone.TYPE_MAIN)
                 .build());
 		
-		ContentProviderResult[] result;
+		ContentProviderResult[] result = null;
 		try {
-			result = mContext.getContentResolver().applyBatch(ContactsContract.AUTHORITY, ops);
-		} catch (Exception e) {
-			e.printStackTrace();
-			result = null;
-		}
-		// The ID of the real contact is the last part of its URI, that is stored in the result of the 1st operation above
+			int permCheck = ContextCompat.checkSelfPermission(mContext, Manifest.permission.WRITE_CONTACTS);
+            if (permCheck == PackageManager.PERMISSION_GRANTED) {
+                result = mContext.getContentResolver().applyBatch(ContactsContract.AUTHORITY, ops);
+            } else {
+                throw new DeniedPermissionException(Manifest.permission.WRITE_CONTACTS);
+            }
+		} catch (RemoteException|OperationApplicationException e) {
+            Log.e(LOG_TAG, e.getMessage());
+            if (BuildConfig.DEBUG)
+                Log.d(LOG_TAG, Log.getStackTraceString(e));
+        }
+        // The ID of the real contact is the last part of its URI, that is stored in the result of the 1st operation above
 		// ContentUris.parseId is a utility method provided by the framework
 		if (result != null && result.length == 3) {
 			realId = String.valueOf(ContentUris.parseId(result[0].uri));
@@ -215,7 +235,7 @@ public class QuickContactsDBHelper extends SQLiteOpenHelper {
 	 * @return -1 if an error occurred while creating the quick contact, -2 if an error occurred creating the real contact,
 	 *          or the row ID of the newly inserted quick contact
 	 */
-	public long addQuickContact(QuickContact contact) {
+	public long addQuickContact(QuickContact contact) throws DeniedPermissionException {
 		// first, create the real contact and collect the raw contact ID
 		String contactId = addRealContact(contact);
 		if ("".equals(contactId)) return -2;

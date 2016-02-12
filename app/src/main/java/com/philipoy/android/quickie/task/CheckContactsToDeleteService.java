@@ -23,7 +23,7 @@ public class CheckContactsToDeleteService extends Service {
 
 	public static final int CODE = 1;
 	
-	private final String TAG = "Check_Delete_Service";
+	private final String LOG_TAG = "ContactsToDeleteService";
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
@@ -43,7 +43,7 @@ public class CheckContactsToDeleteService extends Service {
 		@Override
 		protected ArrayList<QuickContact> doInBackground(Void... params) {
 			if (BuildConfig.DEBUG)
-				Log.d(TAG, "Task is running");
+				Log.d(LOG_TAG, "Task is running");
 			QuickContactsDBHelper dbHelper = new QuickContactsDBHelper(getApplicationContext());
 			ArrayList<QuickContact> contactsToDelete = dbHelper.getQuickContactsToDelete();
 			return contactsToDelete;
@@ -55,7 +55,7 @@ public class CheckContactsToDeleteService extends Service {
 			if (results != null && results.size()>0) {
 				int nbContacts = results.size();
 				if (BuildConfig.DEBUG)
-					Log.d(TAG, nbContacts+" contact(s) to delete");
+					Log.d(LOG_TAG, nbContacts+" contact(s) to delete");
 				// Build notification message
 				NotificationCompat.Builder nb = new NotificationCompat.Builder(getApplicationContext());
 				nb.setAutoCancel(true);

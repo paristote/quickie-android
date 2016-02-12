@@ -30,7 +30,6 @@ public class AllContactsListFragment extends ListFragment implements LoaderCallb
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO open a dialog and invite the user to add a EOL to the selected contact
 		super.onListItemClick(l, v, position, id);
 	}
 

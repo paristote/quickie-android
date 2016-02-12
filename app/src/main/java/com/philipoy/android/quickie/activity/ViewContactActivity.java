@@ -1,10 +1,14 @@
 package com.philipoy.android.quickie.activity;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +24,8 @@ import com.philipoy.android.quickie.storage.QuickContactsDBHelper;
 public class ViewContactActivity extends AppCompatActivity {
 
     // TODO: allow editing the contact details or canceling the EOL
+
+    private final int CALL_CONTACT = 100;
 
     public static final String CONTACT_EXTRA = "Contact_Extra";
 
@@ -86,8 +92,30 @@ public class ViewContactActivity extends AppCompatActivity {
     }
 
     public void callContactAction(View v) {
-        Intent call = new Intent(Intent.ACTION_CALL);
-        call.setData(Uri.parse("tel:"+mContact.getContactPrimaryPhone()));
-        startActivity(call);
+        int permCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
+        if (permCheck == PackageManager.PERMISSION_GRANTED) {
+            Intent call = new Intent(Intent.ACTION_CALL);
+            call.setData(Uri.parse("tel:" + mContact.getContactPrimaryPhone()));
+            startActivity(call);
+        } else {
+            requestCallPhonePermission();
+        }
+    }
+
+    private void requestCallPhonePermission() {
+        // no need to explain why we need this permission
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, CALL_CONTACT);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case CALL_CONTACT:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    callContactAction(null);
+                } else {
+                    Toast.makeText(this, R.string.error_no_permission_call, Toast.LENGTH_LONG).show();
+                }
+        }
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -8,16 +9,14 @@
         android:id="@+id/contact_to_delete_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textCapWords"
-        android:text="John smith"
+        tools:text="John Doe"
         style="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/contact_to_delete_phone_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:text="012345678"
+        tools:text="0123456789"
         style="?android:attr/textAppearanceSmall" />
 
     <LinearLayout
@@ -26,10 +25,10 @@
         android:layout_gravity="center_horizontal">
 
         <Button
-            android:id="@+id/delete_contact_btn"
+            android:id="@+id/cancel_eol_btn"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="@string/action_delete" />
+            android:text="@string/action_cancel" />
 
         <Button
             android:id="@+id/postpone_eol_btn"
@@ -38,10 +37,10 @@
             android:text="@string/action_postpone" />
 
         <Button
-            android:id="@+id/cancel_eol_btn"
+            android:id="@+id/delete_contact_btn"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="@string/action_cancel" />
+            android:text="@string/action_delete" />
 
     </LinearLayout>
 
